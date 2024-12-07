@@ -14,13 +14,13 @@ class TextWidget extends StatelessWidget {
   TextWidget(
       {super.key,
       this.decoration,
-      this.align = TextAlign.center,
+      this.align = TextAlign.start,
       this.maxLines = 2,
       this.isItalize = false,
       this.isBold = false,
       required this.text,
       required this.fontSize,
-      this.color = Colors.white,
+      this.color = Colors.black,
       this.fontFamily = 'Regular'});
 
   @override
