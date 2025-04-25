@@ -39,6 +39,7 @@ dependencies:
   intl:
   carousel_slider: ^4.2.0
   flutter_map:
+  url_launcher:
 dev_dependencies:
   flutter_test:
     sdk: flutter
