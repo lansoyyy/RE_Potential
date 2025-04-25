@@ -23,7 +23,7 @@ class _MapTabState extends State<MapTab> {
     'Energy',
     'Biomass',
     'Hydro',
-    'Existing',
+    'Potential',
     'Renewable'
   ];
   final List<String> items1 = [
@@ -72,7 +72,7 @@ class _MapTabState extends State<MapTab> {
                     ),
                   ),
                 ),
-                selectedValue1 == 'Existing' || selectedValue1 == 'Renewable'
+                selectedValue1 == 'Potential' || selectedValue1 == 'Renewable'
                     ? Container(
                         height: 50,
                         width: 300,
