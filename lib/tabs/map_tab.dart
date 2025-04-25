@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:re_potential/utils/data.dart';
 
 class MapTab extends StatefulWidget {
   const MapTab({super.key});
@@ -12,16 +13,27 @@ class MapTab extends StatefulWidget {
 class _MapTabState extends State<MapTab> {
   final searchController = TextEditingController();
   String nameSearched = '';
-
   String? selectedValue;
+  String? selectedValue1;
+  String? selectedValue2;
+  dynamic type;
 
-  // List of items in the dropdown
   final List<String> items = [
-    'Municipality 1',
-    'Municipality 2',
-    'Municipality 3',
-    'Municipality 4'
+    'Wind',
+    'Energy',
+    'Biomass',
+    'Hydro',
+    'Existing',
+    'Renewable'
   ];
+  final List<String> items1 = [
+    'Wind',
+    'Energy',
+    'Biomass',
+    'Hydro',
+  ];
+
+  final cont = MapController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +49,14 @@ class _MapTabState extends State<MapTab> {
                   height: 50,
                   width: 300,
                   decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 0.5,
-                      ),
+                      border: Border.all(color: Colors.black, width: 0.5),
                       borderRadius: BorderRadius.circular(15)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: DropdownButton<String>(
                       underline: const SizedBox(),
-                      value: selectedValue,
-                      hint: const Text('Select Municipality'),
+                      value: selectedValue1,
+                      hint: const Text('Select Type'),
                       icon: const Icon(Icons.arrow_drop_down),
                       items: items.map((String item) {
                         return DropdownMenuItem<String>(
@@ -57,48 +66,77 @@ class _MapTabState extends State<MapTab> {
                       }).toList(),
                       onChanged: (String? newValue) {
                         setState(() {
-                          selectedValue = newValue;
+                          selectedValue1 = newValue;
                         });
                       },
                     ),
                   ),
                 ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 0.5,
-                      ),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: TextFormField(
-                      style: const TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Bold',
-                          fontSize: 14),
-                      onChanged: (value) {
-                        setState(() {
-                          nameSearched = value;
-                        });
-                      },
-                      decoration: const InputDecoration(
-                          labelStyle: TextStyle(
-                            color: Colors.black,
+                selectedValue1 == 'Existing' || selectedValue1 == 'Renewable'
+                    ? Container(
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 0.5),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: DropdownButton<String>(
+                            underline: const SizedBox(),
+                            value: selectedValue2,
+                            hint: const Text('Select Type'),
+                            icon: const Icon(Icons.arrow_drop_down),
+                            items: items1.map((String item) {
+                              return DropdownMenuItem<String>(
+                                value: item,
+                                child: Text(item),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                selectedValue2 = newValue;
+                              });
+                            },
                           ),
-                          hintText: 'Search',
-                          hintStyle:
-                              TextStyle(fontFamily: 'Regular', fontSize: 18),
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: Colors.grey,
-                          )),
-                      controller: searchController,
-                    ),
-                  ),
-                ),
+                        ),
+                      )
+                    : Container(
+                        height: 50,
+                        width: 300,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 0.5),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: DropdownButton<String>(
+                            underline: const SizedBox(),
+                            value: selectedValue,
+                            hint: const Text('Select Municipality'),
+                            icon: const Icon(Icons.arrow_drop_down),
+                            items: locationCoordinates.map((item) {
+                              return DropdownMenuItem<String>(
+                                onTap: () {
+                                  setState(() {
+                                    cont.move(
+                                        LatLng(item['Latitude'],
+                                            item['Longitude']),
+                                        13);
+
+                                    selectedValue = item['Municipality'];
+                                  });
+                                },
+                                value: item['Municipality'],
+                                child: Text(item['Municipality']),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              // setState(() {
+                              //   selectedValue = newValue;
+                              // });
+                            },
+                          ),
+                        ),
+                      ),
               ],
             ),
           ),
@@ -106,6 +144,7 @@ class _MapTabState extends State<MapTab> {
             width: double.infinity,
             height: 800,
             child: FlutterMap(
+              mapController: cont,
               options: MapOptions(
                 center:
                     LatLng(8.485383, 124.655940), // Center the map over London
