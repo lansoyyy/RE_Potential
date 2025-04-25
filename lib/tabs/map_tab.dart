@@ -106,10 +106,10 @@ class _MapTabState extends State<MapTab> {
             width: double.infinity,
             height: 800,
             child: FlutterMap(
-              options: const MapOptions(
-                initialCenter:
+              options: MapOptions(
+                center:
                     LatLng(8.485383, 124.655940), // Center the map over London
-                initialZoom: 16,
+                zoom: 16,
               ),
               children: [
                 TileLayer(

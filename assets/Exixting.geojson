@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "Exixting",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 12, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.797456859773604, 8.918944602610491 ] ] } },
+{ "type": "Feature", "properties": { "id": 13, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.825238576328104, 8.881581113308963 ] ] } },
+{ "type": "Feature", "properties": { "id": 14, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.836440295017837, 8.907472422970656 ] ] } },
+{ "type": "Feature", "properties": { "id": 15, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.832800735697717, 8.925963946754145 ] ] } },
+{ "type": "Feature", "properties": { "id": 16, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.868390426478328, 8.924037790059103 ] ] } },
+{ "type": "Feature", "properties": { "id": 17, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.911467210717561, 8.949487919265014 ] ] } },
+{ "type": "Feature", "properties": { "id": 18, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.89203456363316, 8.879720541381825 ] ] } },
+{ "type": "Feature", "properties": { "id": 19, "PROJ. NAME": "MisOr Wind Power Project\n", "DEVELOPER": "Hydro Link Projects Corp.\n", "CAPACITY": "200", "STATUS": "PRE-DEVELOPMENT" }, "geometry": { "type": "MultiPoint", "coordinates": [ [ 124.955050933576317, 8.882186318881049 ] ] } }
+]
+}
