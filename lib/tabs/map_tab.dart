@@ -148,7 +148,7 @@ class _MapTabState extends State<MapTab> {
               options: MapOptions(
                 center:
                     LatLng(8.485383, 124.655940), // Center the map over London
-                zoom: 16,
+                zoom: 10,
               ),
               children: [
                 TileLayer(
@@ -157,6 +157,27 @@ class _MapTabState extends State<MapTab> {
                       'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // OSMF's Tile Server
                   userAgentPackageName: 'com.example.app',
                   // And many more recommended properties!
+                ),
+                MarkerLayer(
+                  markers: [
+                    for (int i = 0; i < biomassData.length; i++)
+                      Marker(
+                        point: LatLng(locationCoordinates[i]['Latitude'],
+                            locationCoordinates[i]['Longitude']),
+                        builder: (context) {
+                          return Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                                color: Colors.green, shape: BoxShape.circle),
+                            child: Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Image.asset('assets/images/biomass.png'),
+                            ),
+                          );
+                        },
+                      ),
+                  ],
                 ),
               ],
             ),
