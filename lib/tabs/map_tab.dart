@@ -160,83 +160,430 @@ class _MapTabState extends State<MapTab> {
                   // And many more recommended properties!
                 ),
                 MarkerLayer(
-                  markers: [
-                    for (int i = 0; i < biomassData.length; i++)
-                      Marker(
-                        point: LatLng(locationCoordinates[i]['Latitude'],
-                            locationCoordinates[i]['Longitude']),
-                        builder: (context) {
-                          return GestureDetector(
-                            onTap: () {
-                              showDialog(
-                                context: context,
+                  markers: selectedValue1 == 'Biomass' ||
+                          selectedValue2 == 'Biomass'
+                      ? [
+                          for (int i = 0; i < biomassData.length; i++)
+                            Marker(
+                                point: LatLng(
+                                    locationCoordinates[i]['Latitude'],
+                                    locationCoordinates[i]['Longitude']),
                                 builder: (context) {
-                                  return Dialog(
-                                    backgroundColor: Colors.white,
-                                    child: SizedBox(
-                                      width: 500,
-                                      height: 650,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Align(
-                                              alignment: Alignment.topRight,
-                                              child: IconButton(
-                                                onPressed: () =>
-                                                    Navigator.pop(context),
-                                                icon: const Icon(
-                                                  Icons.close,
-                                                  color: Colors.red,
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 500,
+                                              height: 550,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Center(
+                                                      child: Image.asset(
+                                                        'assets/images/${biomassData[i]['Municipality'] == 'Gingoog City' ? 'Gingoog' : biomassData[i]['Municipality']}.PNG',
+                                                        height: 250,
+                                                        width: 500,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    TextWidget(
+                                                      text: biomassData[i]
+                                                          ['Municipality'],
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Total Shrubs Area: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'TotalShrubsArea']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Hectares: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'Hectares']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Tons Per Year: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'TonsPerYear']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Tons Per 2x Year: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'TonsPer2xYear']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Tons Per Day: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'TonsPerDay']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Energy PerTon: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'EnergyPerTon']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Biomass Kg Per Day: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'BiomassKgPerDay']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Energy MJ Per Day: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'EnergyMJPerDay']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Energy KWh Per Day: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'EnergyKWhPerDay']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Energy Output Percent: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: biomassData[
+                                                                          i][
+                                                                      'EnergyOutputPercent']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ),
-                                            Center(
-                                              child: Image.asset(
-                                                'assets/images/${biomassData[i]['Municipality']}.PNG',
-                                                height: 250,
-                                                width: 500,
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                            TextWidget(
-                                              text: biomassData[i]
-                                                  ['Municipality'],
-                                              fontSize: 24,
-                                              fontFamily: 'Bold',
-                                            ),
-                                            const Divider(),
-                                            const SizedBox(
-                                              height: 5,
-                                            ),
-                                          ],
-                                        ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.green,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Image.asset(
+                                            'assets/images/biomass.png'),
                                       ),
                                     ),
                                   );
                                 },
-                              );
-                            },
-                            child: Container(
-                              width: 50,
-                              height: 50,
-                              decoration: const BoxDecoration(
-                                  color: Colors.green, shape: BoxShape.circle),
-                              child: Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Image.asset('assets/images/biomass.png'),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                  ],
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
                 ),
               ],
             ),
