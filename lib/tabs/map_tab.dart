@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:re_potential/utils/data.dart';
+import 'package:re_potential/widgets/text_widget.dart';
 
 class MapTab extends StatefulWidget {
   const MapTab({super.key});
@@ -165,14 +166,72 @@ class _MapTabState extends State<MapTab> {
                         point: LatLng(locationCoordinates[i]['Latitude'],
                             locationCoordinates[i]['Longitude']),
                         builder: (context) {
-                          return Container(
-                            width: 50,
-                            height: 50,
-                            decoration: const BoxDecoration(
-                                color: Colors.green, shape: BoxShape.circle),
-                            child: Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Image.asset('assets/images/biomass.png'),
+                          return GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    backgroundColor: Colors.white,
+                                    child: SizedBox(
+                                      width: 500,
+                                      height: 650,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.topRight,
+                                              child: IconButton(
+                                                onPressed: () =>
+                                                    Navigator.pop(context),
+                                                icon: const Icon(
+                                                  Icons.close,
+                                                  color: Colors.red,
+                                                ),
+                                              ),
+                                            ),
+                                            Center(
+                                              child: Image.asset(
+                                                'assets/images/${biomassData[i]['Municipality']}.PNG',
+                                                height: 250,
+                                                width: 500,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            TextWidget(
+                                              text: biomassData[i]
+                                                  ['Municipality'],
+                                              fontSize: 24,
+                                              fontFamily: 'Bold',
+                                            ),
+                                            const Divider(),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                            child: Container(
+                              width: 50,
+                              height: 50,
+                              decoration: const BoxDecoration(
+                                  color: Colors.green, shape: BoxShape.circle),
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Image.asset('assets/images/biomass.png'),
+                              ),
                             ),
                           );
                         },
