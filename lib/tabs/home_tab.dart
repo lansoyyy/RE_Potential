@@ -37,7 +37,7 @@ class _HomeTabState extends State<HomeTab> {
 
   Future<void> loadExcelFromAssets() async {
     // Load file from assets
-    ByteData data = await rootBundle.load('assets/sample.xlsx');
+    ByteData data = await rootBundle.load('assets/alubijid.xlsx');
     Uint8List bytes = data.buffer.asUint8List();
 
     // Decode Excel file
@@ -59,7 +59,7 @@ class _HomeTabState extends State<HomeTab> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _autoScroll();
     });
-    loadExcelFromAssets();
+    // loadExcelFromAssets();
   }
 
   void _autoScroll() async {
@@ -92,14 +92,19 @@ class _HomeTabState extends State<HomeTab> {
               const SizedBox(
                 width: 50,
               ),
-              SizedBox(
-                width: 500,
-                child: TextWidget(
-                  maxLines: 100,
-                  text:
-                      'The Philippines is endowed with abundant renewable energy resources, including solar, hydro, wind, geothermal, and biomass. With its archipelagic geography and tropical climate, the country is well-positioned to harness these resources to support its growing energy demand while reducing reliance on imported fossil fuels.',
-                  fontSize: 18,
-                  color: Colors.black,
+              GestureDetector(
+                onTap: () {
+                  loadExcelFromAssets();
+                },
+                child: SizedBox(
+                  width: 500,
+                  child: TextWidget(
+                    maxLines: 100,
+                    text:
+                        'The Philippines is endowed with abundant renewable energy resources, including solar, hydro, wind, geothermal, and biomass. With its archipelagic geography and tropical climate, the country is well-positioned to harness these resources to support its growing energy demand while reducing reliance on imported fossil fuels.',
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
                 ),
               ),
             ],
