@@ -135,7 +135,7 @@ class _AboutUsTabState extends State<AboutUsTab> {
         const SizedBox(height: 40),
         // Footer Text
         const Text(
-          "© 2024 Your Company. All rights reserved.",
+          "© 2025 RE Potential. All rights reserved.",
           style: TextStyle(
               color: Colors.black26, fontSize: 14, fontFamily: 'Regular'),
         ),
