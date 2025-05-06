@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+
+import 'package:excel/excel.dart' as ex;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:re_potential/utils/data.dart';
@@ -30,6 +34,44 @@ class _MapTabState extends State<MapTab> {
   final List<String> items2 = ['None', 'Potential', 'Renewable'];
 
   final cont = MapController();
+  Future<void> loadLatLongFromExcel(String file) async {
+    ByteData data = await rootBundle.load('assets/$file.xlsx');
+    Uint8List bytes = data.buffer.asUint8List();
+
+    var excel = ex.Excel.decodeBytes(bytes);
+
+    List<LatLng> points = [];
+
+    for (var table in excel.tables.keys) {
+      var rows = excel.tables[table]!.rows;
+
+      // Skip header row
+      for (int i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var lon = row[2]?.value;
+        var lat = row[3]?.value;
+
+        if (lon != null && lat != null) {
+          points.add(LatLng(
+            double.parse(lat.toString()),
+            double.parse(lon.toString()),
+          ));
+        }
+      }
+    }
+
+    // Only update state once
+    setState(() {
+      poly1 = Polygon(
+          points: points,
+          color: Colors.red.withOpacity(0.4),
+          borderColor: Colors.red,
+          borderStrokeWidth: 2,
+          isFilled: true);
+    });
+  }
+
+  Polygon poly1 = Polygon(points: []);
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +107,7 @@ class _MapTabState extends State<MapTab> {
                           }).toList(),
                           onChanged: (String? newValue) {
                             setState(() {
+                              poly1 = Polygon(points: []);
                               selectedValue1 = newValue;
                             });
                           },
@@ -120,24 +163,48 @@ class _MapTabState extends State<MapTab> {
                             icon: const Icon(Icons.arrow_drop_down),
                             items: locationCoordinates.map((item) {
                               return DropdownMenuItem<String>(
-                                onTap: () {
-                                  setState(() {
-                                    cont.move(
-                                        LatLng(item['Latitude'],
-                                            item['Longitude']),
-                                        13);
-
-                                    selectedValue = item['Municipality'];
-                                  });
-                                },
                                 value: item['Municipality'],
                                 child: Text(item['Municipality']),
                               );
                             }).toList(),
-                            onChanged: (String? newValue) {
-                              // setState(() {
-                              //   selectedValue = newValue;
-                              // });
+                            onChanged: (String? newValue) async {
+                              if (newValue != null) {
+                                final item = locationCoordinates.firstWhere(
+                                  (loc) => loc['Municipality'] == newValue,
+                                );
+
+                                // Show loading dialog
+                                showDialog(
+                                  context: context,
+                                  barrierDismissible: false,
+                                  builder: (context) => Dialog(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: TextWidget(
+                                          text: 'Loading . . .', fontSize: 14),
+                                    ),
+                                  ),
+                                );
+
+                                if (selectedValue1 == 'Biomass') {
+                                  await loadLatLongFromExcel(
+                                      newValue.toLowerCase());
+                                }
+
+                                // Load Excel data
+
+                                // Close loading dialog
+                                Navigator.pop(context);
+
+                                // Update UI
+                                setState(() {
+                                  cont.move(
+                                    LatLng(item['Latitude'], item['Longitude']),
+                                    13,
+                                  );
+                                  selectedValue = newValue;
+                                });
+                              }
                             },
                           ),
                         ),
@@ -162,6 +229,9 @@ class _MapTabState extends State<MapTab> {
                       'https://tile.openstreetmap.org/{z}/{x}/{y}.png', // OSMF's Tile Server
                   userAgentPackageName: 'com.example.app',
                   // And many more recommended properties!
+                ),
+                PolygonLayer(
+                  polygons: [poly1],
                 ),
                 MarkerLayer(
                   markers: selectedValue1 == 'Biomass'
@@ -590,7 +660,7 @@ class _MapTabState extends State<MapTab> {
                                         width: 125,
                                         height: 125,
                                         decoration: const BoxDecoration(
-                                            color: Colors.green,
+                                            color: Colors.red,
                                             shape: BoxShape.circle),
                                         child: Padding(
                                           padding: const EdgeInsets.all(10.0),
@@ -1024,7 +1094,7 @@ class _MapTabState extends State<MapTab> {
                                           width: 125,
                                           height: 125,
                                           decoration: const BoxDecoration(
-                                              color: Colors.green,
+                                              color: Colors.red,
                                               shape: BoxShape.circle),
                                           child: Padding(
                                             padding: const EdgeInsets.all(10.0),
