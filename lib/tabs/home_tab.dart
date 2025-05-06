@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+
+import 'package:excel/excel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:re_potential/tabs/about_us_tab.dart';
 import 'package:re_potential/utils/colors.dart';
 import 'package:re_potential/widgets/text_widget.dart';
@@ -31,6 +35,23 @@ class _HomeTabState extends State<HomeTab> {
 
   int _currentPage = 0;
 
+  Future<void> loadExcelFromAssets() async {
+    // Load file from assets
+    ByteData data = await rootBundle.load('assets/sample.xlsx');
+    Uint8List bytes = data.buffer.asUint8List();
+
+    // Decode Excel file
+    var excel = Excel.decodeBytes(bytes);
+
+    // Read sheets and rows
+    for (var table in excel.tables.keys) {
+      print('Sheet: $table');
+      for (var row in excel.tables[table]!.rows) {
+        print(row.map((cell) => cell?.value).toList());
+      }
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -38,6 +59,7 @@ class _HomeTabState extends State<HomeTab> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _autoScroll();
     });
+    loadExcelFromAssets();
   }
 
   void _autoScroll() async {
