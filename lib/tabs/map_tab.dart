@@ -31,7 +31,7 @@ class _MapTabState extends State<MapTab> {
     'Hydro',
   ];
 
-  final List<String> items2 = ['None', 'Potential', 'Renewable'];
+  final List<String> items2 = ['None', 'Potential', 'Existing'];
 
   final cont = MapController();
   Future<void> loadLatLongFromExcel(String file) async {
@@ -146,7 +146,7 @@ class _MapTabState extends State<MapTab> {
                     ),
                   ],
                 ),
-                selectedValue3 == 'Potential' || selectedValue3 == 'Renewable'
+                selectedValue3 == 'Potential' || selectedValue3 == 'Existing'
                     ? const SizedBox()
                     : Container(
                         height: 50,
@@ -236,7 +236,7 @@ class _MapTabState extends State<MapTab> {
                 MarkerLayer(
                   markers: selectedValue1 == 'Biomass'
                       ? selectedValue3 != 'Potential' &&
-                              selectedValue3 != 'Renewable'
+                              selectedValue3 != 'Existing'
                           ? [
                               Marker(
                                   point: LatLng(
