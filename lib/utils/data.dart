@@ -698,3 +698,186 @@ List<HydroPowerSite> hydroSites = [
     longitude: 125.13208373589221,
   ),
 ];
+
+final List<Map<String, dynamic>> solarData = [
+  {
+    "municipality": "Balingasag",
+    "building": "Provincial Hospital",
+    "latitude": 8.7425,
+    "longitude": 124.773056,
+    "roofArea": 5685,
+    "utilizedArea": 3979.5,
+    "potentialKW": 754
+  },
+  {
+    "municipality": "Balingasag",
+    "building": "Municipal Hall",
+    "latitude": 8.742222,
+    "longitude": 124.774167,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Salay",
+    "building": "Town Hall",
+    "latitude": 8.858056,
+    "longitude": 124.786111,
+    "roofArea": 1728,
+    "utilizedArea": 1209.6,
+    "potentialKW": 229
+  },
+  {
+    "municipality": "Binuangan",
+    "building": "Municipal Compound",
+    "latitude": 8.921389,
+    "longitude": 124.785556,
+    "roofArea": 985,
+    "utilizedArea": 689.5,
+    "potentialKW": 131
+  },
+  {
+    "municipality": "Sugbongcogon",
+    "building": "Municipal Hall",
+    "latitude": 8.956389,
+    "longitude": 124.787778,
+    "roofArea": 1842,
+    "utilizedArea": 1289.4,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Sugbongcogon",
+    "building": "Gym",
+    "latitude": 8.958333,
+    "longitude": 124.786944,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Kinoguitan",
+    "building": "Municipal Hall",
+    "latitude": 8.982778,
+    "longitude": 124.791667,
+    "roofArea": 1037,
+    "utilizedArea": 725.9,
+    "potentialKW": 137
+  },
+  {
+    "municipality": "Balingoan",
+    "building": "Municipal Compound",
+    "latitude": 9.003889,
+    "longitude": 124.850556,
+    "roofArea": 2139,
+    "utilizedArea": 1497.3,
+    "potentialKW": 284
+  },
+  {
+    "municipality": "Talisayan",
+    "building": "Municipal Hall",
+    "latitude": 8.995278,
+    "longitude": 124.883333,
+    "roofArea": 2840,
+    "utilizedArea": 1988,
+    "potentialKW": 377
+  },
+  {
+    "municipality": "Talisayan",
+    "building": "Public Market",
+    "latitude": 8.996389,
+    "longitude": 124.884722,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Talisayan",
+    "building": "Provincial Hospital",
+    "latitude": 8.998056,
+    "longitude": 124.879722,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Medina",
+    "building": "Municipal Compound",
+    "latitude": 8.911111,
+    "longitude": 125.024444,
+    "roofArea": 3944,
+    "utilizedArea": 2760.8,
+    "potentialKW": 523
+  },
+  {
+    "municipality": "Medina",
+    "building": "General Hospital",
+    "latitude": 8.911944,
+    "longitude": 125.024444,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Medina",
+    "building": "Public Market",
+    "latitude": 8.9075,
+    "longitude": 125.023333,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Gingoog City",
+    "building": "City Hall",
+    "latitude": 8.816111,
+    "longitude": 125.103333,
+    "roofArea": 5896,
+    "utilizedArea": 4127.2,
+    "potentialKW": 782
+  },
+  {
+    "municipality": "Gingoog City",
+    "building": "Negosyo Center",
+    "latitude": 8.816111,
+    "longitude": 125.103056,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Gingoog City",
+    "building": "Assessor Office",
+    "latitude": 8.816389,
+    "longitude": 125.103611,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Gingoog City",
+    "building": "CSWD",
+    "latitude": 8.816667,
+    "longitude": 125.104167,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Gingoog City",
+    "building": "City Council",
+    "latitude": 8.816389,
+    "longitude": 125.104444,
+    "roofArea": null,
+    "utilizedArea": null,
+    "potentialKW": null
+  },
+  {
+    "municipality": "Magsaysay",
+    "building": "Municipal Hall",
+    "latitude": 9.019722,
+    "longitude": 125.1825,
+    "roofArea": 702,
+    "utilizedArea": 491.4,
+    "potentialKW": 93
+  }
+];

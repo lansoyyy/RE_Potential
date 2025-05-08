@@ -492,6 +492,226 @@ class _MapTabState extends State<MapTab> {
                         ]
                       : [],
                 ),
+                // Solar
+                MarkerLayer(
+                  markers: selectedValue1 == 'Solar'
+                      ? [
+                          for (int i = 0; i < solarData.length; i++)
+                            Marker(
+                                point: LatLng(solarData[i]['latitude'],
+                                    solarData[i]['longitude']),
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 500,
+                                              height: 550,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Center(
+                                                      child: Image.asset(
+                                                        'assets/images/solar/$i.PNG',
+                                                        height: 250,
+                                                        width: 500,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    TextWidget(
+                                                      text: solarData[i]
+                                                          ['municipality'],
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Building: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: solarData[i]
+                                                                  ['building'],
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Roof Area: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: solarData[i]
+                                                                      [
+                                                                      'roofArea']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Utilized Area: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: solarData[i]
+                                                                      [
+                                                                      'utilizedArea']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Potential KW: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: solarData[i]
+                                                                      [
+                                                                      'potentialKW']
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.blue,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                            'assets/images/wind.png'),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
+                ),
+
                 // Wind
                 MarkerLayer(
                   markers: selectedValue1 == 'Wind'
