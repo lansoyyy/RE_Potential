@@ -233,6 +233,265 @@ class _MapTabState extends State<MapTab> {
                 PolygonLayer(
                   polygons: [poly1],
                 ),
+                // Hydro
+                MarkerLayer(
+                  markers: selectedValue1 == 'Hydro'
+                      ? [
+                          for (int i = 0; i < hydroSites.length; i++)
+                            Marker(
+                                point: LatLng(hydroSites[i].latitude,
+                                    hydroSites[i].longitude),
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 500,
+                                              height: 550,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Center(
+                                                      child: Image.asset(
+                                                        'assets/images/hydro/$i.PNG',
+                                                        height: 250,
+                                                        width: 500,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    TextWidget(
+                                                      text: hydroSites[i].name,
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Hydraulic Head: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: hydroSites[
+                                                                      i]
+                                                                  .hydraulicHead
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Penstock length: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: hydroSites[
+                                                                      i]
+                                                                  .penstockLength
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Diversion canal length: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: hydroSites[
+                                                                      i]
+                                                                  .diversionCanalLength
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Hydraulic flow rate: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: hydroSites[
+                                                                      i]
+                                                                  .hydraulicFlowRate
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Hydro Power Capacity: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: hydroSites[
+                                                                      i]
+                                                                  .hydroPowerCapacity
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.green,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                            'assets/images/hydro-power.png'),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
+                ),
                 // Wind
                 MarkerLayer(
                   markers: selectedValue1 == 'Wind'
