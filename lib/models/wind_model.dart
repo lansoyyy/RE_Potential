@@ -6,18 +6,6 @@ class WindSite {
   final double avgWindSpeed;
   final double avgWindDensity;
 
-  WindSite({
-    required this.siteNumber,
-    required this.coordinates,
-    required this.areaAcres,
-    required this.municipality,
-    required this.avgWindSpeed,
-    required this.avgWindDensity,
-  });
-}
-
-class CaseASite {
-  final int siteNumber;
   final double powerDensity;
   final double bladeSweptArea;
   final double maxEfficiency;
@@ -25,8 +13,13 @@ class CaseASite {
   final int effectiveHours;
   final double annualEnergyYield;
 
-  CaseASite({
+  WindSite({
     required this.siteNumber,
+    required this.coordinates,
+    required this.areaAcres,
+    required this.municipality,
+    required this.avgWindSpeed,
+    required this.avgWindDensity,
     required this.powerDensity,
     required this.bladeSweptArea,
     required this.maxEfficiency,
