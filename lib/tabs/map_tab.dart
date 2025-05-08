@@ -494,7 +494,7 @@ class _MapTabState extends State<MapTab> {
                 ),
                 // Solar
                 MarkerLayer(
-                  markers: selectedValue1 == 'Solar'
+                  markers: selectedValue1 == 'Energy'
                       ? [
                           for (int i = 0; i < solarData.length; i++)
                             Marker(

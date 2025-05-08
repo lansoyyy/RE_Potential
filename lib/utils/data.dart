@@ -714,9 +714,9 @@ final List<Map<String, dynamic>> solarData = [
     "building": "Municipal Hall",
     "latitude": 8.742222,
     "longitude": 124.774167,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Salay",
@@ -743,16 +743,16 @@ final List<Map<String, dynamic>> solarData = [
     "longitude": 124.787778,
     "roofArea": 1842,
     "utilizedArea": 1289.4,
-    "potentialKW": null
+    "potentialKW": 0
   },
   {
     "municipality": "Sugbongcogon",
     "building": "Gym",
     "latitude": 8.958333,
     "longitude": 124.786944,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Kinoguitan",
@@ -786,18 +786,18 @@ final List<Map<String, dynamic>> solarData = [
     "building": "Public Market",
     "latitude": 8.996389,
     "longitude": 124.884722,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Talisayan",
     "building": "Provincial Hospital",
     "latitude": 8.998056,
     "longitude": 124.879722,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Medina",
@@ -813,18 +813,18 @@ final List<Map<String, dynamic>> solarData = [
     "building": "General Hospital",
     "latitude": 8.911944,
     "longitude": 125.024444,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Medina",
     "building": "Public Market",
     "latitude": 8.9075,
     "longitude": 125.023333,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Gingoog City",
@@ -840,36 +840,36 @@ final List<Map<String, dynamic>> solarData = [
     "building": "Negosyo Center",
     "latitude": 8.816111,
     "longitude": 125.103056,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Gingoog City",
     "building": "Assessor Office",
     "latitude": 8.816389,
     "longitude": 125.103611,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Gingoog City",
     "building": "CSWD",
     "latitude": 8.816667,
     "longitude": 125.104167,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Gingoog City",
     "building": "City Council",
     "latitude": 8.816389,
     "longitude": 125.104444,
-    "roofArea": null,
-    "utilizedArea": null,
-    "potentialKW": null
+    "roofArea": 0,
+    "utilizedArea": 0,
+    "potentialKW": 0
   },
   {
     "municipality": "Magsaysay",
