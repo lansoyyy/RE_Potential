@@ -696,12 +696,12 @@ class _MapTabState extends State<MapTab> {
                                       width: 125,
                                       height: 125,
                                       decoration: const BoxDecoration(
-                                          color: Colors.blue,
+                                          color: Colors.orange,
                                           shape: BoxShape.circle),
                                       child: Padding(
                                         padding: const EdgeInsets.all(5.0),
                                         child: Image.asset(
-                                            'assets/images/wind.png'),
+                                            'assets/images/Solar.png'),
                                       ),
                                     ),
                                   );
