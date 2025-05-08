@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/hydro/
+      - assets/images/wind/
     - assets/
   #   - images/a_dot_ham.jpeg
 

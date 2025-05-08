@@ -537,13 +537,13 @@ class _MapTabState extends State<MapTab> {
                                                         ),
                                                       ),
                                                     ),
-                                                    // Center(
-                                                    //   child: Image.asset(
-                                                    //     'assets/images/${biomassData[i]['Municipality'] == 'Gingoog City' ? 'Gingoog' : biomassData[i]['Municipality']}.PNG',
-                                                    //     height: 250,
-                                                    //     width: 500,
-                                                    //   ),
-                                                    // ),
+                                                    Center(
+                                                      child: Image.asset(
+                                                        'assets/images/wind/${i + 1}.PNG',
+                                                        height: 250,
+                                                        width: 500,
+                                                      ),
+                                                    ),
                                                     const SizedBox(
                                                       height: 5,
                                                     ),
