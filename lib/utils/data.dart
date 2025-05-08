@@ -441,7 +441,7 @@ final List<Map<String, dynamic>> biomassData = [
 final List<WindSite> windSites = [
   WindSite(
     siteNumber: "Site 1",
-    coordinates: "124.8293197°E 8.9063445°N",
+    coordinates: "124.8293197,8.9063445",
     areaAcres: 857.8259,
     municipality: "Binuangan, Misamis Oriental",
     avgWindSpeed: 5.76,
@@ -455,7 +455,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 2",
-    coordinates: "124.8926033°E 8.9087239°N",
+    coordinates: "124.8926033,8.9087239",
     areaAcres: 908.6615,
     municipality: "Balingoan & Talisayan Misamis Oriental",
     avgWindSpeed: 6.91,
@@ -469,7 +469,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 3",
-    coordinates: "124.8638926°E 8.8693558°N",
+    coordinates: "124.8638926,8.8693558",
     areaAcres: 257.2421,
     municipality: "Salay and Claveria, Misamis Oriental",
     avgWindSpeed: 6.13,
@@ -483,7 +483,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 4",
-    coordinates: "124.8702845°E 8.8364788°N",
+    coordinates: "124.8702845,8.8364788",
     areaAcres: 557.7737,
     municipality: "Lagonglong and Claveria, Misamis Oriental",
     avgWindSpeed: 5.80,
@@ -497,7 +497,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 1",
-    coordinates: "124.8201506°E 8.9782571°N",
+    coordinates: "124.8201506,8.9782571",
     areaAcres: 525.506,
     municipality: "Kinoguitan, Misamis Oriental",
     avgWindSpeed: 5.80,
@@ -511,7 +511,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 2",
-    coordinates: "124.8515971°E 8.9633048°N",
+    coordinates: "124.8515971,8.9633048",
     areaAcres: 1728.2144,
     municipality: "Kinoguitan and Balingoan, Misamis Oriental",
     avgWindSpeed: 6.20,
@@ -525,7 +525,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 3",
-    coordinates: "124.8987915°E 8.9345160°N",
+    coordinates: "124.8987915,8.9345160",
     areaAcres: 3838.0945,
     municipality: "Talisayan and Binuangan, Misamis Oriental",
     avgWindSpeed: 6.10,
@@ -539,7 +539,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 4",
-    coordinates: "124.9486303°E 8.8970687°N",
+    coordinates: "124.9486303,8.8970687",
     areaAcres: 1021.55,
     municipality: "Medina, Misamis Oriental",
     avgWindSpeed: 5.47,
@@ -553,7 +553,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 5",
-    coordinates: "124.8293197°E 8.9063445°N",
+    coordinates: "124.8293197,8.9063445",
     areaAcres: 857.8259,
     municipality: "Binuangan, Misamis Oriental",
     avgWindSpeed: 5.76,
@@ -567,7 +567,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 6",
-    coordinates: "124.8638926°E 8.8693558°N",
+    coordinates: "124.8638926,8.8693558",
     areaAcres: 257.2421,
     municipality: "Salay and Claveria, Misamis Oriental",
     avgWindSpeed: 6.13,
@@ -581,7 +581,7 @@ final List<WindSite> windSites = [
   ),
   WindSite(
     siteNumber: "Site 7",
-    coordinates: "124.8702845°E 8.8364788°N",
+    coordinates: "124.8702845,8.8364788",
     areaAcres: 557.7737,
     municipality: "Lagonglong and Claveria, Misamis Oriental",
     avgWindSpeed: 5.80,
