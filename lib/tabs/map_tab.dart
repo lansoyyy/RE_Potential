@@ -233,6 +233,426 @@ class _MapTabState extends State<MapTab> {
                 PolygonLayer(
                   polygons: [poly1],
                 ),
+                // Wind
+                MarkerLayer(
+                  markers: selectedValue1 == 'Wind'
+                      ? [
+                          for (int i = 0; i < windSites.length; i++)
+                            Marker(
+                                point: LatLng(
+                                    double.parse(
+                                        windSites[i].coordinates.split(',')[1]),
+                                    double.parse(windSites[i]
+                                        .coordinates
+                                        .split(',')[0])),
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 500,
+                                              height: 550,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    // Center(
+                                                    //   child: Image.asset(
+                                                    //     'assets/images/${biomassData[i]['Municipality'] == 'Gingoog City' ? 'Gingoog' : biomassData[i]['Municipality']}.PNG',
+                                                    //     height: 250,
+                                                    //     width: 500,
+                                                    //   ),
+                                                    // ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    TextWidget(
+                                                      text: windSites[i]
+                                                          .municipality,
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Site Number: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .siteNumber,
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Area (acres): ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .areaAcres
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Average Wind Speed (m/s): ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .avgWindSpeed
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Average Wind Density (w/m2): ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .avgWindDensity
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Power Density (w/m2): ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .powerDensity
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Blade Swept Area (m2): ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .bladeSweptArea
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Maximum Efficiency: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .maxEfficiency
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Number of Turbines: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .numTurbines
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Effective Hours: ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .effectiveHours
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Row(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            TextWidget(
+                                                              text:
+                                                                  'Annual Energy\nYield (Watt-Hour): ',
+                                                              fontSize: 14,
+                                                              fontFamily:
+                                                                  'Medium',
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            TextWidget(
+                                                              text: windSites[i]
+                                                                  .annualEnergyYield
+                                                                  .toString(),
+                                                              fontSize: 18,
+                                                              fontFamily:
+                                                                  'Bold',
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.blue,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                            'assets/images/wind.png'),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
+                ),
+
+                // Biomass
                 MarkerLayer(
                   markers: selectedValue1 == 'Biomass'
                       ? selectedValue3 != 'Potential' &&
