@@ -881,3 +881,177 @@ final List<Map<String, dynamic>> solarData = [
     "potentialKW": 93
   }
 ];
+
+final List<Map<String, dynamic>> existingRenewableProjects = [
+  {
+    "type": "Solar",
+    "projects": [
+      {
+        "name": "Kirahon Solar Farm",
+        "location": "Villanueva, Misamis Oriental",
+        "capacityMW": 12.5,
+        "status": "Operational",
+        "latitude": 8.5837,
+        "longitude": 124.7699,
+        "details":
+            "Supplies approximately 8,900 households with over 18 million kWh/year."
+      },
+      {
+        "name": "FDC Green Energy Solar Project",
+        "location": "Tagoloan, Misamis Oriental",
+        "capacityMW": 20.75,
+        "status": "Under Construction",
+        "latitude": 8.5387,
+        "longitude": 124.7544,
+        "details":
+            "Expansion from 11.5 MW with over 34,000 monocrystalline solar panels."
+      },
+      {
+        "name": "Project Volt",
+        "location": "Tagoloan, Misamis Oriental",
+        "capacityMW": 20.75,
+        "status": "Under Construction",
+        "latitude": 8.5387,
+        "longitude": 124.7544,
+        "details":
+            "Public-private solar energy installation generating 32,703 kWh annually."
+      },
+      {
+        "name": "DMPI Bugo Solar Power Project",
+        "location": "Bugo, Cagayan de Oro, Misamis Oriental",
+        "capacityMW": 2,
+        "status": "Under Construction",
+        "latitude": 8.4820,
+        "longitude": 124.6480,
+        "details": "Part of Mindanao solar development."
+      },
+      {
+        "name": "MISAMIS SOLAR",
+        "location": "Tagoloan, Misamis Oriental",
+        "capacityMW": 9.4,
+        "status": "Under Construction",
+        "latitude": 8.5387,
+        "longitude": 124.7544,
+        "details": "Part of Mindanao renewable project cluster."
+      },
+    ]
+  },
+  {
+    "type": "Biomass",
+    "projects": [
+      {
+        "name": "Green Planet Renewable Energy Corp (GPREC)",
+        "location": "Naawan, Misamis Oriental",
+        "capacityMW": null,
+        "status": "Operational",
+        "latitude": 8.5583,
+        "longitude": 124.3667,
+        "details": "Pyrolysis plant converting plastic and tires into fuel oil."
+      }
+    ]
+  },
+  {
+    "type": "Hydro",
+    "projects": [
+      {
+        "name": "Cabulig Mini-Hydroelectric Power Plant",
+        "location": "Misamis Oriental",
+        "capacityMW": 8,
+        "status": "Under Construction",
+        "latitude": 8.6917,
+        "longitude": 124.8125,
+        "details": "Utilizes river systems for hydroelectric generation."
+      }
+    ]
+  }
+];
+
+final List<Map<String, dynamic>> potentialRenewableProjects = [
+  {
+    "type": "Solar",
+    "projects": [
+      {
+        "name": "INVENIC Solar Farm",
+        "location": "Lagonglong, Misamis Oriental",
+        "capacityMW": 5,
+        "status": "Planned",
+        "latitude": 8.7500,
+        "longitude": 124.7833,
+        "details": "Private firms exploring 5-MW solar installation."
+      },
+      {
+        "name": "Claveria Solar Power Project",
+        "location": "Claveria, Misamis Oriental",
+        "capacityMW": 61,
+        "status": "Pre-Construction",
+        "latitude": 8.6119,
+        "longitude": 124.8934,
+        "details": "Mindanao solar power development pipeline."
+      },
+      {
+        "name": "Hayes Solar Power Project",
+        "location": "Villanueva, Misamis Oriental",
+        "capacityMW": 22,
+        "status": "Announced",
+        "latitude": 8.5837,
+        "longitude": 124.7699,
+        "details": "Part of prospective solar energy investments."
+      },
+      {
+        "name": "Laguindingan Solar Power Project",
+        "location": "Laguindingan, Misamis Oriental",
+        "capacityMW": 40,
+        "status": "Pre-Construction",
+        "latitude": 8.5747,
+        "longitude": 124.4409,
+        "details": "Proposed clean energy project in Laguindingan."
+      },
+      {
+        "name": "Opol Solar Power Project",
+        "location": "Opol, Misamis Oriental",
+        "capacityMW": 25,
+        "status": "Pre-Construction",
+        "latitude": 8.5212,
+        "longitude": 124.5748,
+        "details": "Under feasibility review."
+      },
+      {
+        "name": "Tagoloan Solar Power Project",
+        "location": "Tagoloan, Misamis Oriental",
+        "capacityMW": 45,
+        "status": "Pre-Construction",
+        "latitude": 8.5387,
+        "longitude": 124.7544,
+        "details": "Part of DOE renewable registry."
+      },
+    ]
+  },
+  {
+    "type": "Wind",
+    "projects": [
+      {
+        "name": "Claveria Wind Power Project (Phase 1)",
+        "location": "Claveria, Misamis Oriental",
+        "capacityMW": 15,
+        "status": "Shelved",
+        "latitude": 8.6535,
+        "longitude": 124.8235,
+        "details": "Previously proposed, currently shelved."
+      }
+    ]
+  },
+  {
+    "type": "Biomass",
+    "projects": [
+      {
+        "name": "Misamis Oriental Bio-Energy Corporation",
+        "location": "Villanueva, Misamis Oriental",
+        "capacityMW": 12,
+        "status": "Planned",
+        "latitude": 8.5837,
+        "longitude": 124.7699,
+        "details": "Multi-feedstock biomass power plant."
+      }
+    ]
+  }
+];
