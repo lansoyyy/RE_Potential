@@ -138,6 +138,12 @@ class _MapTabState extends State<MapTab> {
                           }).toList(),
                           onChanged: (String? newValue) {
                             setState(() {
+                              if (newValue! == 'Existing') {
+                                cont.move(
+                                  LatLng(8.569381, 124.756252),
+                                  10,
+                                );
+                              }
                               selectedValue3 = newValue;
                             });
                           },
@@ -255,7 +261,7 @@ class _MapTabState extends State<MapTab> {
                                             backgroundColor: Colors.white,
                                             child: SizedBox(
                                               width: 400,
-                                              height: 325,
+                                              height: 375,
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.all(8.0),
@@ -411,13 +417,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.orange,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                            'assets/images/Solar.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.orange.withOpacity(0.8),
+                                            Colors.orange.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/Solar.png'),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -450,7 +475,7 @@ class _MapTabState extends State<MapTab> {
                                             backgroundColor: Colors.white,
                                             child: SizedBox(
                                               width: 400,
-                                              height: 325,
+                                              height: 375,
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.all(8.0),
@@ -605,13 +630,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.green,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                            'assets/images/wind.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.green.withOpacity(0.8),
+                                            Colors.green.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/wind.png'),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -643,7 +687,7 @@ class _MapTabState extends State<MapTab> {
                                             backgroundColor: Colors.white,
                                             child: SizedBox(
                                               width: 400,
-                                              height: 325,
+                                              height: 375,
                                               child: Padding(
                                                 padding:
                                                     const EdgeInsets.all(8.0),
@@ -799,13 +843,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.blue,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                            'assets/images/hydro-power.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.blue.withOpacity(0.8),
+                                            Colors.blue.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/hydro-power.png'),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -1059,13 +1122,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.blue,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                            'assets/images/hydro-power.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.blue.withOpacity(0.8),
+                                            Colors.blue.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/hydro-power.png'),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -1279,13 +1361,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.orange,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                            'assets/images/Solar.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.orange.withOpacity(0.8),
+                                            Colors.orange.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/Solar.png'),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -1699,13 +1800,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.green,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Image.asset(
-                                            'assets/images/wind.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.green.withOpacity(0.8),
+                                            Colors.green.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/wind.png'),
+                                        ),
                                       ),
                                     ),
                                   );
@@ -2127,13 +2247,32 @@ class _MapTabState extends State<MapTab> {
                                     child: Container(
                                       width: 125,
                                       height: 125,
-                                      decoration: const BoxDecoration(
-                                          color: Colors.red,
-                                          shape: BoxShape.circle),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Image.asset(
-                                            'assets/images/biomass.png'),
+                                      decoration: BoxDecoration(
+                                        gradient: RadialGradient(
+                                          colors: [
+                                            Colors.red.withOpacity(0.8),
+                                            Colors.red.withOpacity(0.4),
+                                          ],
+                                          center: Alignment.center,
+                                          radius: 0.8,
+                                        ),
+                                        borderRadius: BorderRadius.circular(40),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.2),
+                                            blurRadius: 8,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(40),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Image.asset(
+                                              'assets/images/biomass.png'),
+                                        ),
                                       ),
                                     ),
                                   );
