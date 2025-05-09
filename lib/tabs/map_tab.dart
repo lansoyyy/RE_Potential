@@ -26,7 +26,7 @@ class _MapTabState extends State<MapTab> {
 
   final List<String> items = [
     'Wind',
-    'Energy',
+    'Solar',
     'Biomass',
     'Hydro',
   ];
@@ -494,7 +494,7 @@ class _MapTabState extends State<MapTab> {
                 ),
                 // Solar
                 MarkerLayer(
-                  markers: selectedValue1 == 'Energy'
+                  markers: selectedValue1 == 'Solar'
                       ? [
                           for (int i = 0; i < solarData.length; i++)
                             Marker(
