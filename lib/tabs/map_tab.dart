@@ -233,6 +233,588 @@ class _MapTabState extends State<MapTab> {
                 PolygonLayer(
                   polygons: selectedValue3 == 'Potential' ? [poly1] : [],
                 ),
+                // Solar Existing
+                MarkerLayer(
+                  markers: selectedValue1 == 'Solar' &&
+                          selectedValue3 == 'Existing'
+                      ? [
+                          for (int i = 0; i < solarProjects.length; i++)
+                            Marker(
+                                point: LatLng(
+                                    double.parse(solarProjects[i]['coordinates']
+                                        .split(',')[0]),
+                                    double.parse(solarProjects[i]['coordinates']
+                                        .split(',')[1])),
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 400,
+                                              height: 325,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    TextWidget(
+                                                      text: solarProjects[i]
+                                                          ['municipality'],
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text:
+                                                              'Project Name: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: solarProjects[i]
+                                                                  [
+                                                                  'projectName']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text: 'Developer: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: solarProjects[i]
+                                                                  ['developer']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text: 'Status: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: solarProjects[i]
+                                                                  ['status']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text:
+                                                              'Capacity (MW): ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: solarProjects[i]
+                                                                  ['capacityMW']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.orange,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                            'assets/images/Solar.png'),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
+                ),
+                // Wind Existing
+
+                MarkerLayer(
+                  markers: selectedValue1 == 'Wind' &&
+                          selectedValue3 == 'Existing'
+                      ? [
+                          for (int i = 0; i < windProjects.length; i++)
+                            Marker(
+                                point: LatLng(
+                                    double.parse(windProjects[i]['coordinates']
+                                        .split(',')[0]),
+                                    double.parse(windProjects[i]['coordinates']
+                                        .split(',')[1])),
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 400,
+                                              height: 325,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    TextWidget(
+                                                      text: windProjects[i]
+                                                          ['municipality'],
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text:
+                                                              'Project Name: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: windProjects[i][
+                                                                  'projectName']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text: 'Developer: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: windProjects[i]
+                                                                  ['developer']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text: 'Status: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: windProjects[i]
+                                                                  ['status']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text:
+                                                              'Capacity (MW): ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: windProjects[i]
+                                                                  ['capacityMW']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.green,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                            'assets/images/wind.png'),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
+                ),
+                // Hydro Existing
+                MarkerLayer(
+                  markers: selectedValue1 == 'Hydro' &&
+                          selectedValue3 == 'Existing'
+                      ? [
+                          for (int i = 0; i < hydroProjects.length; i++)
+                            Marker(
+                                point: LatLng(
+                                    double.parse(hydroProjects[i]['coordinates']
+                                        .split(',')[0]),
+                                    double.parse(hydroProjects[i]['coordinates']
+                                        .split(',')[1])),
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          return Dialog(
+                                            backgroundColor: Colors.white,
+                                            child: SizedBox(
+                                              width: 400,
+                                              height: 325,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Align(
+                                                      alignment:
+                                                          Alignment.topRight,
+                                                      child: IconButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                context),
+                                                        icon: const Icon(
+                                                          Icons.close,
+                                                          color: Colors.red,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    TextWidget(
+                                                      text: hydroProjects[i]
+                                                          ['municipality'],
+                                                      fontSize: 24,
+                                                      fontFamily: 'Bold',
+                                                    ),
+                                                    const Divider(),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text:
+                                                              'Project Name: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: hydroProjects[i]
+                                                                  [
+                                                                  'projectName']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text: 'Developer: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: hydroProjects[i]
+                                                                  ['developer']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text: 'Status: ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: hydroProjects[i]
+                                                                  ['status']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    const SizedBox(
+                                                      height: 5,
+                                                    ),
+                                                    Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        TextWidget(
+                                                          text:
+                                                              'Capacity (MW): ',
+                                                          fontSize: 14,
+                                                          fontFamily: 'Medium',
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: hydroProjects[i]
+                                                                  ['capacityMW']
+                                                              .toString(),
+                                                          fontSize: 18,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 125,
+                                      height: 125,
+                                      decoration: const BoxDecoration(
+                                          color: Colors.blue,
+                                          shape: BoxShape.circle),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(5.0),
+                                        child: Image.asset(
+                                            'assets/images/hydro-power.png'),
+                                      ),
+                                    ),
+                                  );
+                                },
+                                height: 50,
+                                width: 50),
+                        ]
+                      : [],
+                ),
                 // Hydro
                 MarkerLayer(
                   markers: selectedValue1 == 'Hydro' &&
@@ -478,7 +1060,7 @@ class _MapTabState extends State<MapTab> {
                                       width: 125,
                                       height: 125,
                                       decoration: const BoxDecoration(
-                                          color: Colors.green,
+                                          color: Colors.blue,
                                           shape: BoxShape.circle),
                                       child: Padding(
                                         padding: const EdgeInsets.all(5.0),
@@ -1118,7 +1700,7 @@ class _MapTabState extends State<MapTab> {
                                       width: 125,
                                       height: 125,
                                       decoration: const BoxDecoration(
-                                          color: Colors.blue,
+                                          color: Colors.green,
                                           shape: BoxShape.circle),
                                       child: Padding(
                                         padding: const EdgeInsets.all(5.0),

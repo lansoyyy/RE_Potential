@@ -1059,7 +1059,7 @@ final List<Map<String, dynamic>> potentialRenewableProjects = [
 final List<Map<String, dynamic>> windProjects = [
   {
     'municipality': 'Salay',
-    'coordinates': '8.86699N 124.82387E',
+    'coordinates': '8.86699,124.82387',
     'capacity': 200,
     'projectName': 'MisOr Wind Power Project',
     'developer': 'Hydro Link Projects Corp.',
@@ -1126,7 +1126,7 @@ final List<Map<String, dynamic>> windProjects = [
 final List<Map<String, dynamic>> solarProjects = [
   {
     'municipality': 'Jasaan',
-    'coordinates': '8.64687N,124.78826E',
+    'coordinates': '8.64687,124.78826',
     'capacityMW': 58.0,
     'projectName': 'Jasaan Solar Power Plant',
     'developer': 'Lohas & Soul Lighting Inc.',
