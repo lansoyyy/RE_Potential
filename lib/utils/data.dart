@@ -1164,6 +1164,22 @@ final List<Map<String, dynamic>> solarProjects = [
     'developer': 'Merbau Corporation',
     'status': 'DEVELOPMENT',
   },
+  {
+    'municipality': 'Kirahon Solar Farm (Villanueva)',
+    'coordinates': '8.55349,124.78591',
+    'capacityMW': 12.53,
+    'projectName': 'Kirahon Solar Energy Corporation',
+    'developer': 'Kirahon Solar Energy Corporation',
+    'status': 'DEVELOPMENT',
+  },
+  {
+    'municipality': 'CEPALCO Solar PV Plant (Cagayan de Oro)',
+    'coordinates': '8.43260,124.65852',
+    'capacityMW': 1,
+    'projectName': 'CEPALCO Solar PV Plant',
+    'developer': 'CEPALCO Solar PV Plant',
+    'status': 'DEVELOPMENT',
+  },
 ];
 
 final List<Map<String, dynamic>> hydroProjects = [
