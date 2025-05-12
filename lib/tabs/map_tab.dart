@@ -1445,7 +1445,7 @@ class _MapTabState extends State<MapTab> {
                                                     ),
                                                     Center(
                                                       child: Image.asset(
-                                                        'assets/images/wind/${i + 1}.PNG',
+                                                        'assets/images/wind/${i + 1}.png',
                                                         height: 250,
                                                         width: 500,
                                                       ),
