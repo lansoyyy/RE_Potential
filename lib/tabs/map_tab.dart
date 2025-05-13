@@ -6,6 +6,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:re_potential/utils/data.dart';
+import 'package:re_potential/utils/solar_data.dart';
 import 'package:re_potential/widgets/text_widget.dart';
 
 class MapTab extends StatefulWidget {
@@ -72,6 +73,8 @@ class _MapTabState extends State<MapTab> {
   }
 
   Polygon poly1 = Polygon(points: []);
+
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -1174,186 +1177,276 @@ class _MapTabState extends State<MapTab> {
                                         builder: (context) {
                                           return Dialog(
                                             backgroundColor: Colors.white,
-                                            child: SizedBox(
-                                              width: 500,
-                                              height: 550,
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Align(
-                                                      alignment:
-                                                          Alignment.topRight,
-                                                      child: IconButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                context),
-                                                        icon: const Icon(
-                                                          Icons.close,
-                                                          color: Colors.red,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Center(
-                                                      child: Image.asset(
-                                                        'assets/images/solar/$i.PNG',
-                                                        height: 250,
-                                                        width: 500,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    TextWidget(
-                                                      text: solarData[i]
-                                                          ['municipality'],
-                                                      fontSize: 24,
-                                                      fontFamily: 'Bold',
-                                                    ),
-                                                    const Divider(),
-                                                    const SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Row(
+                                            child: StatefulBuilder(
+                                                builder: (context, setState) {
+                                              return SizedBox(
+                                                width: 500,
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: SingleChildScrollView(
+                                                    child: Column(
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
-                                                              .spaceBetween,
+                                                              .start,
                                                       children: [
+                                                        Align(
+                                                          alignment: Alignment
+                                                              .topRight,
+                                                          child: IconButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    context),
+                                                            icon: const Icon(
+                                                              Icons.close,
+                                                              color: Colors.red,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Center(
+                                                          child: Image.asset(
+                                                            'assets/images/solar/$i.PNG',
+                                                            height: 250,
+                                                            width: 500,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          height: 5,
+                                                        ),
+                                                        TextWidget(
+                                                          text: solarData[i]
+                                                              ['municipality'],
+                                                          fontSize: 24,
+                                                          fontFamily: 'Bold',
+                                                        ),
+                                                        const Divider(),
+                                                        const SizedBox(
+                                                          height: 5,
+                                                        ),
                                                         Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
-                                                                  .start,
+                                                                  .spaceBetween,
                                                           children: [
-                                                            TextWidget(
-                                                              text:
-                                                                  'Building: ',
-                                                              fontSize: 14,
-                                                              fontFamily:
-                                                                  'Medium',
+                                                            Row(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                TextWidget(
+                                                                  text:
+                                                                      'Building: ',
+                                                                  fontSize: 14,
+                                                                  fontFamily:
+                                                                      'Medium',
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 5,
+                                                                ),
+                                                                TextWidget(
+                                                                  text: solarData[
+                                                                          i][
+                                                                      'building'],
+                                                                  fontSize: 18,
+                                                                  fontFamily:
+                                                                      'Bold',
+                                                                ),
+                                                              ],
                                                             ),
-                                                            const SizedBox(
-                                                              width: 5,
-                                                            ),
-                                                            TextWidget(
-                                                              text: solarData[i]
-                                                                  ['building'],
-                                                              fontSize: 18,
-                                                              fontFamily:
-                                                                  'Bold',
+                                                            Row(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                TextWidget(
+                                                                  text:
+                                                                      'Roof Area: ',
+                                                                  fontSize: 14,
+                                                                  fontFamily:
+                                                                      'Medium',
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 5,
+                                                                ),
+                                                                TextWidget(
+                                                                  text: solarData[
+                                                                              i]
+                                                                          [
+                                                                          'roofArea']
+                                                                      .toString(),
+                                                                  fontSize: 18,
+                                                                  fontFamily:
+                                                                      'Bold',
+                                                                ),
+                                                              ],
                                                             ),
                                                           ],
                                                         ),
+                                                        const SizedBox(
+                                                          height: 5,
+                                                        ),
                                                         Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
-                                                                  .start,
+                                                                  .spaceBetween,
                                                           children: [
-                                                            TextWidget(
-                                                              text:
-                                                                  'Roof Area: ',
-                                                              fontSize: 14,
-                                                              fontFamily:
-                                                                  'Medium',
+                                                            Row(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                TextWidget(
+                                                                  text:
+                                                                      'Utilized Area: ',
+                                                                  fontSize: 14,
+                                                                  fontFamily:
+                                                                      'Medium',
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 5,
+                                                                ),
+                                                                TextWidget(
+                                                                  text: solarData[
+                                                                              i]
+                                                                          [
+                                                                          'utilizedArea']
+                                                                      .toString(),
+                                                                  fontSize: 18,
+                                                                  fontFamily:
+                                                                      'Bold',
+                                                                ),
+                                                              ],
                                                             ),
-                                                            const SizedBox(
-                                                              width: 5,
-                                                            ),
-                                                            TextWidget(
-                                                              text: solarData[i]
-                                                                      [
-                                                                      'roofArea']
-                                                                  .toString(),
-                                                              fontSize: 18,
-                                                              fontFamily:
-                                                                  'Bold',
+                                                            Row(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .end,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                TextWidget(
+                                                                  text:
+                                                                      'Potential KW: ',
+                                                                  fontSize: 14,
+                                                                  fontFamily:
+                                                                      'Medium',
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 5,
+                                                                ),
+                                                                TextWidget(
+                                                                  text: solarData[
+                                                                              i]
+                                                                          [
+                                                                          'potentialKW']
+                                                                      .toString(),
+                                                                  fontSize: 18,
+                                                                  fontFamily:
+                                                                      'Bold',
+                                                                ),
+                                                              ],
                                                             ),
                                                           ],
+                                                        ),
+                                                        Visibility(
+                                                          visible: solarData[i][
+                                                                  'municipality'] ==
+                                                              'Sugbongcogon',
+                                                          child: Column(
+                                                            children: [
+                                                              const Divider(),
+                                                              Row(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Image.asset(
+                                                                    'assets/images/solar/${solarData[i]['municipality']}/$index$index.png',
+                                                                  ),
+                                                                  const SizedBox(
+                                                                      width:
+                                                                          20),
+                                                                  Image.asset(
+                                                                    'assets/images/solar/${solarData[i]['municipality']}/$index.png',
+                                                                    height: 250,
+                                                                    width: 250,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              TextWidget(
+                                                                  text: solarDataNew[
+                                                                      index -
+                                                                          1],
+                                                                  fontSize: 18),
+                                                              Row(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  IconButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      if (index >
+                                                                          1) {
+                                                                        setState(
+                                                                            () {
+                                                                          index--;
+                                                                        });
+                                                                      }
+                                                                    },
+                                                                    icon:
+                                                                        const Icon(
+                                                                      Icons
+                                                                          .arrow_left,
+                                                                    ),
+                                                                  ),
+                                                                  IconButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      if (index <
+                                                                          8) {
+                                                                        setState(
+                                                                            () {
+                                                                          index++;
+                                                                        });
+                                                                      }
+                                                                    },
+                                                                    icon:
+                                                                        const Icon(
+                                                                      Icons
+                                                                          .arrow_right,
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
                                                       ],
                                                     ),
-                                                    const SizedBox(
-                                                      height: 5,
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            TextWidget(
-                                                              text:
-                                                                  'Utilized Area: ',
-                                                              fontSize: 14,
-                                                              fontFamily:
-                                                                  'Medium',
-                                                            ),
-                                                            const SizedBox(
-                                                              width: 5,
-                                                            ),
-                                                            TextWidget(
-                                                              text: solarData[i]
-                                                                      [
-                                                                      'utilizedArea']
-                                                                  .toString(),
-                                                              fontSize: 18,
-                                                              fontFamily:
-                                                                  'Bold',
-                                                            ),
-                                                          ],
-                                                        ),
-                                                        Row(
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .end,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            TextWidget(
-                                                              text:
-                                                                  'Potential KW: ',
-                                                              fontSize: 14,
-                                                              fontFamily:
-                                                                  'Medium',
-                                                            ),
-                                                            const SizedBox(
-                                                              width: 5,
-                                                            ),
-                                                            TextWidget(
-                                                              text: solarData[i]
-                                                                      [
-                                                                      'potentialKW']
-                                                                  .toString(),
-                                                              fontSize: 18,
-                                                              fontFamily:
-                                                                  'Bold',
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
+                                                  ),
                                                 ),
-                                              ),
-                                            ),
+                                              );
+                                            }),
                                           );
                                         },
                                       );
