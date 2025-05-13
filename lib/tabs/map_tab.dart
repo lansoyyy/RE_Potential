@@ -1174,6 +1174,7 @@ class _MapTabState extends State<MapTab> {
                                     onTap: () {
                                       showDialog(
                                         context: context,
+                                        barrierDismissible: false,
                                         builder: (context) {
                                           return Dialog(
                                             backgroundColor: Colors.white,
@@ -1197,9 +1198,14 @@ class _MapTabState extends State<MapTab> {
                                                           alignment: Alignment
                                                               .topRight,
                                                           child: IconButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    context),
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+
+                                                              setState(() {
+                                                                index = 1;
+                                                              });
+                                                            },
                                                             icon: const Icon(
                                                               Icons.close,
                                                               color: Colors.red,
@@ -1363,8 +1369,17 @@ class _MapTabState extends State<MapTab> {
                                                         ),
                                                         Visibility(
                                                           visible: solarData[i][
-                                                                  'municipality'] ==
-                                                              'Sugbongcogon',
+                                                                      'municipality'] ==
+                                                                  'Sugbongcogon' ||
+                                                              solarData[i][
+                                                                      'municipality'] ==
+                                                                  'Salay' ||
+                                                              solarData[i][
+                                                                      'municipality'] ==
+                                                                  'Binuangan' ||
+                                                              solarData[i][
+                                                                      'municipality'] ==
+                                                                  'Kinoguitan',
                                                           child: Column(
                                                             children: [
                                                               const Divider(),
@@ -1390,9 +1405,20 @@ class _MapTabState extends State<MapTab> {
                                                                 ],
                                                               ),
                                                               TextWidget(
-                                                                  text: solarDataNew[
-                                                                      index -
-                                                                          1],
+                                                                  text: solarData[i]
+                                                                              [
+                                                                              'municipality'] ==
+                                                                          'Sugbongcogon'
+                                                                      ? sugbongcogonNames[
+                                                                          index -
+                                                                              1]
+                                                                      : solarData[i]['municipality'] ==
+                                                                              'Salay'
+                                                                          ? salayNames[index -
+                                                                              1]
+                                                                          : solarData[i]['municipality'] == 'Binuangan'
+                                                                              ? binuanganNames[index - 1]
+                                                                              : kinoguitanNames[index - 1],
                                                                   fontSize: 18),
                                                               Row(
                                                                 crossAxisAlignment:
@@ -1422,12 +1448,47 @@ class _MapTabState extends State<MapTab> {
                                                                   IconButton(
                                                                     onPressed:
                                                                         () {
-                                                                      if (index <
-                                                                          8) {
-                                                                        setState(
-                                                                            () {
-                                                                          index++;
-                                                                        });
+                                                                      if (solarData[i]
+                                                                              [
+                                                                              'municipality'] ==
+                                                                          'Sugbongcogon') {
+                                                                        if (index <
+                                                                            8) {
+                                                                          setState(
+                                                                              () {
+                                                                            index++;
+                                                                          });
+                                                                        }
+                                                                      } else if (solarData[i]
+                                                                              [
+                                                                              'municipality'] ==
+                                                                          'Salay') {
+                                                                        if (index <
+                                                                            10) {
+                                                                          setState(
+                                                                              () {
+                                                                            index++;
+                                                                          });
+                                                                        }
+                                                                      } else if (solarData[i]
+                                                                              [
+                                                                              'municipality'] ==
+                                                                          'Binuangan') {
+                                                                        if (index <
+                                                                            5) {
+                                                                          setState(
+                                                                              () {
+                                                                            index++;
+                                                                          });
+                                                                        }
+                                                                      } else {
+                                                                        if (index <
+                                                                            10) {
+                                                                          setState(
+                                                                              () {
+                                                                            index++;
+                                                                          });
+                                                                        }
                                                                       }
                                                                     },
                                                                     icon:
