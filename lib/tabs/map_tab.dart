@@ -35,13 +35,13 @@ class _MapTabState extends State<MapTab> {
   final List<String> items2 = ['Potential', 'Existing'];
 
   final cont = MapController();
+
+  List<LatLng> points = [];
   Future<void> loadLatLongFromExcel(String file) async {
     ByteData data = await rootBundle.load('assets/$file.xlsx');
     Uint8List bytes = data.buffer.asUint8List();
 
     var excel = ex.Excel.decodeBytes(bytes);
-
-    List<LatLng> points = [];
 
     for (var table in excel.tables.keys) {
       var rows = excel.tables[table]!.rows;
@@ -239,9 +239,20 @@ class _MapTabState extends State<MapTab> {
                   userAgentPackageName: 'com.example.app',
                   // And many more recommended properties!
                 ),
-                PolygonLayer(
-                  polygons: selectedValue3 == 'Potential' ? [poly1] : [],
-                ),
+                for (int i = 0; i < points.length; i++)
+                  PolygonLayer(
+                    polygons: [
+                      Polygon(
+                          points: [points[i]],
+                          color: Colors.red,
+                          borderColor: Colors.red,
+                          borderStrokeWidth: 5,
+                          isFilled: true)
+                    ],
+                  ),
+                // PolygonLayer(
+                //   polygons: selectedValue3 == 'Potential' ? [poly1] : [],
+                // ),
                 // Solar Existing
                 MarkerLayer(
                   markers: selectedValue1 == 'Solar' &&
