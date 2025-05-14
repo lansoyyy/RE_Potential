@@ -247,4 +247,104 @@ List<NewSolarModel> newSolarDatas = [
       location: 'Punong',
       area1: LatLng(8.596092, 124.829174),
       area2: LatLng(8.581949, 124.855472)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Bugdang',
+      area1: LatLng(8.977109, 124.874152),
+      area2: LatLng(8.972028, 124.886882)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Calamcam',
+      area1: LatLng(8.987304, 124.885831),
+      area2: LatLng(8.987686, 124.904413)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Casibole',
+      area1: LatLng(8.911622, 124.894643),
+      area2: LatLng(8.950541, 124.940219)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Casibole',
+      area1: LatLng(8.895690, 124.900367),
+      area2: LatLng(8.941139, 124.952037)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Magkarila',
+      area1: LatLng(8.981493, 124.878190),
+      area2: LatLng(8.975940, 124.891944)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Mandahilag',
+      area1: LatLng(8.950532, 124.940211),
+      area2: LatLng(8.941248, 124.951969)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Mintabon',
+      area1: LatLng(9.006092, 124.862427),
+      area2: LatLng(9.000339, 124.874366)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Pangpangon',
+      area1: LatLng(8.961959, 124.908273),
+      area2: LatLng(8.971311, 124.929333)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Poblacion',
+      area1: LatLng(9.002195, 124.874079),
+      area2: LatLng(8.987290, 124.881935)),
+  NewSolarModel(
+      municipality: 'Talisayan',
+      location: 'Pook',
+      area1: LatLng(8.971238, 124.929365),
+      area2: LatLng(8.911632, 124.894775)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Bangbang',
+      area1: LatLng(8.892004, 125.001168),
+      area2: LatLng(8.820522, 124.933558)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Bulwa',
+      area1: LatLng(8.925419, 125.009267),
+      area2: LatLng(8.911979, 125.008323)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Cabug',
+      area1: LatLng(8.909408, 125.019394),
+      area2: LatLng(8.897685, 125.022655)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Dig-aguyan',
+      area1: LatLng(8.926468, 124.982988),
+      area2: LatLng(8.910107, 124.982656)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Duka',
+      area1: LatLng(8.929006, 124.997851),
+      area2: LatLng(8.916414, 125.004438)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Gasa',
+      area1: LatLng(8.930868, 124.977306),
+      area2: LatLng(8.851146, 124.918267)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Maanas',
+      area1: LatLng(8.883990, 125.004895),
+      area2: LatLng(8.890096, 125.036351)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Mananum Bag-o',
+      area1: LatLng(8.922431, 124.992619),
+      area2: LatLng(8.842039, 124.922581)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'Mananum Daan',
+      area1: LatLng(8.902896, 124.983696),
+      area2: LatLng(8.831406, 124.928249)),
+  NewSolarModel(
+      municipality: 'Medina',
+      location: 'North Poblacion',
+      area1: LatLng(8.912937, 125.007542),
+      area2: LatLng(8.914124, 125.026275)),
 ];

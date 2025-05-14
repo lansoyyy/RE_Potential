@@ -1196,7 +1196,6 @@ class _MapTabState extends State<MapTab> {
                                       int index = 1;
                                       showDialog(
                                         context: context,
-                                        barrierDismissible: false,
                                         builder: (context) {
                                           return Dialog(
                                             backgroundColor: Colors.white,
@@ -1385,95 +1384,101 @@ class _MapTabState extends State<MapTab> {
                                                             ),
                                                           ],
                                                         ),
-                                                        Column(
-                                                          children: [
-                                                            const Divider(),
-                                                            Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .center,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Image.asset(
-                                                                  'assets/images/solar/${solarData[i]['municipality']}/$index$index.png',
-                                                                ),
-                                                                const SizedBox(
-                                                                    width: 20),
-                                                                Image.asset(
-                                                                  'assets/images/solar/${solarData[i]['municipality']}/$index.png',
-                                                                  height: 250,
-                                                                  width: 250,
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            TextWidget(
-                                                                text:
-                                                                    newSolarDatas
-                                                                        .where(
-                                                                          (element) {
-                                                                            return element.municipality ==
-                                                                                solarData[i]['municipality'];
-                                                                          },
-                                                                        )
-                                                                        .elementAt(
-                                                                            index -
-                                                                                1)
-                                                                        .location,
-                                                                fontSize: 18),
-                                                            Row(
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .start,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                IconButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    if (index >
-                                                                        1) {
-                                                                      setState(
-                                                                          () {
-                                                                        index--;
-                                                                      });
-                                                                    }
-                                                                  },
-                                                                  icon:
-                                                                      const Icon(
-                                                                    Icons
-                                                                        .arrow_left,
+                                                        newSolarDatas.where(
+                                                          (element) {
+                                                            return element
+                                                                    .municipality ==
+                                                                solarData[i][
+                                                                    'municipality'];
+                                                          },
+                                                        ).isEmpty
+                                                            ? const SizedBox()
+                                                            : Column(
+                                                                children: [
+                                                                  const Divider(),
+                                                                  Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .center,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      Image
+                                                                          .asset(
+                                                                        'assets/images/solar/${solarData[i]['municipality']}/$index$index.png',
+                                                                      ),
+                                                                      const SizedBox(
+                                                                          width:
+                                                                              20),
+                                                                      Image
+                                                                          .asset(
+                                                                        'assets/images/solar/${solarData[i]['municipality']}/$index.png',
+                                                                        height:
+                                                                            250,
+                                                                        width:
+                                                                            250,
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ),
-                                                                IconButton(
-                                                                  onPressed:
-                                                                      () {
-                                                                    if (index <
-                                                                        (newSolarDatas
-                                                                            .where(
-                                                                          (element) {
-                                                                            return element.municipality ==
-                                                                                solarData[i]['municipality'];
-                                                                          },
-                                                                        ).length)) {
-                                                                      setState(
-                                                                          () {
-                                                                        index++;
-                                                                      });
-                                                                    }
-                                                                  },
-                                                                  icon:
-                                                                      const Icon(
-                                                                    Icons
-                                                                        .arrow_right,
+                                                                  TextWidget(
+                                                                      text: newSolarDatas
+                                                                          .where(
+                                                                            (element) {
+                                                                              return element.municipality == solarData[i]['municipality'];
+                                                                            },
+                                                                          )
+                                                                          .elementAt(index - 1)
+                                                                          .location,
+                                                                      fontSize: 18),
+                                                                  Row(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      IconButton(
+                                                                        onPressed:
+                                                                            () {
+                                                                          if (index >
+                                                                              1) {
+                                                                            setState(() {
+                                                                              index--;
+                                                                            });
+                                                                          }
+                                                                        },
+                                                                        icon:
+                                                                            const Icon(
+                                                                          Icons
+                                                                              .arrow_left,
+                                                                        ),
+                                                                      ),
+                                                                      IconButton(
+                                                                        onPressed:
+                                                                            () {
+                                                                          if (index <
+                                                                              (newSolarDatas.where(
+                                                                                (element) {
+                                                                                  return element.municipality == solarData[i]['municipality'];
+                                                                                },
+                                                                              ).length)) {
+                                                                            setState(() {
+                                                                              index++;
+                                                                            });
+                                                                          }
+                                                                        },
+                                                                        icon:
+                                                                            const Icon(
+                                                                          Icons
+                                                                              .arrow_right,
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
+                                                                ],
+                                                              ),
                                                       ],
                                                     ),
                                                   ),
