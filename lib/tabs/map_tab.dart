@@ -1169,18 +1169,22 @@ class _MapTabState extends State<MapTab> {
                         ]
                       : [],
                 ),
-                // OverlayImageLayer(
-                //   overlayImages: [
-                //     OverlayImage(
-                //       opacity: 50,
-                //       bounds: LatLngBounds(LatLng(8.910861, 124.783939),
-                //           LatLng(8.902554, 124.795884)),
-                //       imageProvider: const AssetImage(
-                //         'assets/images/solar/Binuangan/1-removebg-preview (1).png',
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                //
+                OverlayImageLayer(
+                    overlayImages: selectedValue1 == 'Solar' &&
+                            selectedValue3 == 'Potential'
+                        ? [
+                            for (int i = 0; i < newSolarDatas.length; i++)
+                              OverlayImage(
+                                opacity: 50,
+                                bounds: LatLngBounds(newSolarDatas[i].area1,
+                                    newSolarDatas[i].area2),
+                                imageProvider: AssetImage(
+                                  'assets/images/solar/${newSolarDatas[i].municipality}/${newSolarDatas[i].index}.png',
+                                ),
+                              ),
+                          ]
+                        : []),
                 // Solar
                 MarkerLayer(
                   markers: selectedValue1 == 'Solar' &&
