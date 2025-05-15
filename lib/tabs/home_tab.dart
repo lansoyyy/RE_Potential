@@ -100,7 +100,7 @@ class _HomeTabState extends State<HomeTab> {
                     text: _currentPage == 0
                         ? 'Solar Energy'
                         : _currentPage == 1
-                            ? 'Hyropower'
+                            ? 'Hydropower'
                             : _currentPage == 2
                                 ? 'Wind Energy'
                                 : 'Biomass Energy',
